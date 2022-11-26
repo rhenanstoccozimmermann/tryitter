@@ -41,7 +41,7 @@ O desafio é composto dos seguintes requisitos técnicos:
 
 ## 2. Explicação sobre as tomadas de decisão no projeto
 
-Seguem as decisões tomadas no planejamento, na implementação e na conclusão do projeto, com a correspondente explicação.
+Seguem as decisões tomadas no planejamento e na implementação do projeto, com a correspondente explicação.
 
 ### I) Etapa de planejamento
 
@@ -59,6 +59,19 @@ Para orientar a construção das tabelas, foi elaborado o DER a seguir:
   <img src=".github/database.png" alt="Diagrama de Entidade-Relacionamento" width="600px" />
 </div>
 <br />
+
+#### Endpoints
+
+- POST /account
+- POST /login
+- GET /account/:id
+- PUT /account/:id
+- DELETE /account/:id
+- POST /post
+- GET /post/:id
+- GET /post
+- PUT /post/:id
+- DELETE /post/:id
 
 ### II) Etapa de implementação
 
@@ -90,9 +103,9 @@ Recebe como entrada o id da conta.
 
 #### PUT /account/:id
 
-O endpoint altera a senha da pessoa estudante na rede social.
+O endpoint altera o nome e a senha da pessoa estudante na rede social.
 
-Recebe como entradas o id da conta e uma nova senha.
+Recebe como entradas o id da conta e um novo nome e uma nova senha.
 
 Retorna uma mensagem confirmando a alteração.
 
@@ -126,7 +139,7 @@ O endpoint lista posts a partir do seu conteúdo.
 
 Recebe como entrada o conteúdo a ser buscado.
 
-Retorna uma lista com o id da conta e os ids e conteúdos dos posts.
+Retorna uma lista com os ids das contas e os ids e conteúdos dos posts.
 
 #### PUT /post/:id
 
