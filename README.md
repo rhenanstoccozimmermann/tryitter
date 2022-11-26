@@ -62,6 +62,8 @@ Para orientar a construção das tabelas, foi elaborado o DER a seguir:
 
 #### Endpoints
 
+Para orientar o desenvolvimento dos endpoints, foi elaborada a lista a seguir:
+
 - POST /account
 - POST /login
 - GET /account/:id
