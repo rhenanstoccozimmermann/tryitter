@@ -1,5 +1,5 @@
 <div align="center">
-  <h3 align="center">Desafio Final Aceleração em C# Turma XP - Trybe</h3>
+  <h3 align="center">Desafio Final da Aceleração em C# da Turma XP - Trybe</h3>
   <p align="center">
     Trata-se de desafio técnico proposto ao final da Aceleração em C# da Turma XP - Trybe, no qual foi desenvolvido um aplicativo de rede social, o Tryitter.
   </p>
