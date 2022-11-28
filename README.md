@@ -70,8 +70,8 @@ Para orientar o desenvolvimento dos endpoints, foi elaborada a lista a seguir:
 - PUT /account/:id
 - DELETE /account/:id
 - POST /post
+- GET /post/account/:id
 - GET /post/:id
-- GET /post
 - PUT /post/:id
 - DELETE /post/:id
 
@@ -127,7 +127,7 @@ Recebe como entradas o id da conta e o conteúdo do post.
 
 Retorna o id do post.
 
-#### GET /post/:id
+#### GET /post/account/:id
 
 O endpoint lista todos os posts de uma pessoa estudante na rede social.
 
@@ -135,13 +135,11 @@ Recebe como entrada o id da conta.
 
 Retorna uma lista com o id da conta e os ids e conteúdos dos posts.
 
-#### GET /post
+#### GET /post/:id
 
-O endpoint lista posts a partir do seu conteúdo.
+Retorna o id da conta e o id e conteúdo do post.
 
-Recebe como entrada o conteúdo a ser buscado.
-
-Retorna uma lista com os ids das contas e os ids e conteúdos dos posts.
+Recebe como entrada o id do post.
 
 #### PUT /post/:id
 
