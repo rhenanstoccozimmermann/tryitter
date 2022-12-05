@@ -3,13 +3,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace tryitter.Repository
 {
-    public class PostRepository : IPostRepository
+    public class PostRepository : IPostRepository 
     {
         private readonly IPostContext _context;
-        public PostRepository(IPostRepository context)
+        public PostRepository(IPostContext context)
         {
             _context = context;
         }
+
         public void AddPost(Account account, string postContent)
         {
 
@@ -24,15 +25,18 @@ namespace tryitter.Repository
         }
         public IEnumerable<Post> GetPostsByAccountId(int accountId)
         {
-            return _context.Posts.Where(post => post.accountId == accountId)!;
+            return _context.Posts.Where(post => post.AccountId == accountId);
         }
         public Account GetAccountById(int accountId)
         {
             return _context.Accounts.Find(accountId)!;
         }
-        public Video GetPostById(int postId)
-        {
-            return _context.Posts.Find(postId)!;
+        // public Video GetPostById(int postId)
+        // {
+        //     return _context.Posts.Find(postId)!;
+        // }
+         public Post GetPostById(int PostId) {
+            throw new NotImplementedException();
         }
         public void UpdatePost(int postId)
         {
@@ -44,7 +48,7 @@ namespace tryitter.Repository
         }
         public void DeletePost(int postId)
         {
-            if (GetPostById(postId).Any())
+            if (GetPostById(postId) is null)
                 throw new InvalidOperationException();
 
             _context.Posts.Remove(GetPostById(postId));

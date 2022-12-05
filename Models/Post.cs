@@ -10,6 +10,9 @@ namespace tryitter.Models
         public int PostId { get; set; }
         [ForeignKey("AccountId")]
         public int? AccountId { get; set; }
-        public List<Post> Posts { get; set; } = default!;
+        public string Image {get; set;}
+        // public List<Post> Posts { get; set; } = default!;
+        [MaxLength(300, ErrorMessage="Número máximo atingido")]
+        public string PostText {get; set;}
     }
 }

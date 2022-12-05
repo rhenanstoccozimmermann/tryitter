@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using tryitter.Repository;
 
-namespace tryitter;
+namespace tryitter
 {
     [ApiController]
     [Route("api")]
@@ -40,7 +40,7 @@ namespace tryitter;
             {
                 return NotFound();
             }
-            return Ok(_repository.GetPostsByAccountId());
+            return Ok(_repository.GetPostsByAccountId(accountId));
         }
 
         /// <summary> This function return a post</summary>
@@ -68,8 +68,8 @@ namespace tryitter;
             {
                 return NotFound();
             }
-            _repository.updatePost(post);
-            return Ok(post);
+            _repository.UpdatePost(postId);
+            return Ok(postId);
         }
 
         /// <summary> This function delete a post</summary>
@@ -83,8 +83,8 @@ namespace tryitter;
             {
                 return NotFound();
             }
-            _repository.DeletePost(post);
-            return Ok(post);
+            _repository.DeletePost(postId);
+            return Ok(postId); // poderia retornar tbm, talvez, "NoContent"
         }
     }
 }
