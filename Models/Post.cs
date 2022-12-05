@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace tryitter.Models
 {
+    // os posts precisam ter um tamanho máximo de 300
     public class Post
     {
         [Key]
