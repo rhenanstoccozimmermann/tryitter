@@ -14,7 +14,11 @@ public class PostContext : DbContext, IPostContext
     optionsBuilder.EnableSensitiveDataLogging();
     if (!optionsBuilder.IsConfigured)
     {
-      optionsBuilder.UseSqlServer(@"Server=localhost;Database=sqlserver;User=SA;Password=1q2w3e4r@#$")
+      optionsBuilder.UseSqlServer(
+        @"Server=localhost;
+        Database=sqlserver;
+        User=SA;
+        Password=1q2w3e4r@#$")
         .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
     }
   }
