@@ -2,6 +2,6 @@ namespace tryitter.Constants
 {
     public static class TokenConstants
     {
-        public const string Secret = "MinhaSenhaMegaSecreta";
+        public const string Secret = "ColoqueSuaSenhaAqui";
     }
 }
