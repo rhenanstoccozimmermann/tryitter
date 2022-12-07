@@ -1,0 +1,20 @@
+# version: '3.6'
+# services:
+#   mssql:
+#     image: mcr.microsoft.com/mssql/server:2022-latest
+#     user: root
+#     ports:
+#       - 1433:1433
+#     environment:
+#       - ACCEPT_EULA=Y
+#       - MSSQL_SA_PASSWORD=1q2w3e4r@#$
+#     command: 
+#       - mkdir -p -m 777 /var/opt/mssql && chgrp -R 0 /var/opt/mssql
+#       - mkdir -p -m 777 /var/opt/mssql/data && chgrp -R 0 /var/opt/mssql/data
+#       - mkdir -p -m 777 /var/opt/sqlserver && chgrp -R 0 /var/opt/sqlserver
+#       - chmod -R 777 /var/opt/mssql /var/opt/sqlserver /var/opt/mssql/data
+#       - chown -R mssql:0 /var/opt/mssql /var/opt/sqlserver /var/opt/mssql/data
+
+#Deixando como comentário o comando que usei para subir o docker:
+
+# docker run --name sqlserver -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=1q2w3e4r@#$" -p 1433:1433 -d mcr.microsoft.com/mssql/server

@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace tryitter.Models
 {
@@ -6,5 +7,14 @@ namespace tryitter.Models
     {
         [Key]
         public int AccountId { get; set; }
+        [Required]
+        public string Name { get; set; } = default!;
+        [Required]
+        public string Email { get; set; } = default!;
+        [Required]
+        public string Module { get; set; } = default!;
+        [Required]
+        public string Password { get; set; } = default!;
+        
     }
 }
