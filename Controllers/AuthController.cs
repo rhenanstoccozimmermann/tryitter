@@ -1,28 +1,28 @@
-using tryitter.ViewModels;
+// using tryitter.ViewModels;
 
-// função de autenticação do usuario.
+// // função de autenticação do usuario.
 
-[HttpPost]
+// [HttpPost]
 
-public ActionResult<UserViewModel> Authenticate([FromBody] User user)
-{
-  UserViewModel userViewModel = new UserViewModel();
-  try
-  {
-    userViewModel.User = new UserRepository().Get(user);
+// public ActionResult<UserViewModel> Authenticate([FromBody] User user)
+// {
+//   UserViewModel userViewModel = new UserViewModel();
+//   try
+//   {
+//     userViewModel.User = new UserRepository().Get(user);
 
-    if (userViewModel.User == null)
-    {
-      return NotFound("User not found!");
-    }
+//     if (userViewModel.User == null)
+//     {
+//       return NotFound("User not found!");
+//     }
 
-    userViewModel.Token = new TokenGenerator().Generate();
+//     userViewModel.Token = new TokenGenerator().Generate();
 
-    userViewModel.User.Password = string.Empty;
-  } 
-  catch (Exception ex)
-  {
-    return BadRequest(ex.Message);
-  }
-  return userViewModel;
-}
+//     userViewModel.User.Password = string.Empty;
+//   } 
+//   catch (Exception ex)
+//   {
+//     return BadRequest(ex.Message);
+//   }
+//   return userViewModel;
+// }
