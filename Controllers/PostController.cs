@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using tryitter.Repository;
 
-namespace tryitter
+namespace tryitter.Controllers
 {
     [ApiController]
     [Route("api")]

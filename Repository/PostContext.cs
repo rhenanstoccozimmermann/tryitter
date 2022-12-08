@@ -15,10 +15,7 @@ public class PostContext : DbContext, IPostContext
     if (!optionsBuilder.IsConfigured)
     {
       optionsBuilder.UseSqlServer(
-        @"Server=localhost;
-        Database=sqlserver;
-        User=SA;
-        Password=1q2w3e4r@#$")
+        @"Data Source=localhost; Initial Catalog=tryitterdb; User Id=sa; Password=Vpmr0BNHP1")
         .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
     }
   }

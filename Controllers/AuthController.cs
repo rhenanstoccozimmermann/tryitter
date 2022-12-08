@@ -1,28 +1,35 @@
-// using tryitter.ViewModels;
+using Microsoft.AspNetCore.Mvc;
+using tryitter;
+using tryitter.Models;
+using tryitter.Service;
 
-// // função de autenticação do usuario.
+namespace tryitter.Controllers {
 
-// [HttpPost]
+    [Route("api/login")]
+    [ApiController]
+  public class AuthController : ControllerBase {
 
-// public ActionResult<UserViewModel> Authenticate([FromBody] User user)
-// {
-//   UserViewModel userViewModel = new UserViewModel();
-//   try
-//   {
-//     userViewModel.User = new UserRepository().Get(user);
+    private readonly IAccountService _service;
 
-//     if (userViewModel.User == null)
-//     {
-//       return NotFound("User not found!");
-//     }
+    public AuthController(IAccountService service)
+    {
+      _service = service;    
+    }
 
-//     userViewModel.Token = new TokenGenerator().Generate();
+[HttpPost]
+public ActionResult<string> Authenticate([FromBody] Account user)
+{
+  bool isCorrectAccount = _service.Login(user);
+  string token = string.Empty;
+  if (isCorrectAccount) {
+    token = _service.GenerateToken(user);
+    return Ok(token);
+  }
+  return BadRequest("Dados inválidos");
+  
+}
 
-//     userViewModel.User.Password = string.Empty;
-//   } 
-//   catch (Exception ex)
-//   {
-//     return BadRequest(ex.Message);
-//   }
-//   return userViewModel;
-// }
+}
+
+}
+// função de autenticação do usuario.
