@@ -10,9 +10,9 @@ using tryitter.Repository;
 namespace tryitter.Service {
   public class AccountService : IAccountService {
 
-    private readonly IPostRepository _repository;
+    private readonly IAccountRepository _repository;
 
-    public AccountService(IPostRepository repository)
+    public AccountService(IAccountRepository repository)
     {
       _repository = repository;
     }
@@ -21,7 +21,7 @@ namespace tryitter.Service {
       bool isLogged = false;
 
       try {
-        var model = _repository.GetAccountById(user.AccountId);
+        var model = _repository.GetById(user.AccountId);
 
         if (model is null)
           throw new ArgumentNullException("dados invalidos");
@@ -59,5 +59,29 @@ return tokenHandler.WriteToken(token);
             return claims;
         }
 
-}
+    public Account? Add(Account model)
+    {
+      throw new NotImplementedException();
+    }
+
+    public Account GetById(int id)
+    {
+      throw new NotImplementedException();
+    }
+
+    public void Delete(int id)
+    {
+      throw new NotImplementedException();
+    }
+
+    public Account Update(int id, Account model)
+    {
+      throw new NotImplementedException();
+    }
+
+    public IEnumerable<Account> GetAll()
+    {
+      throw new NotImplementedException();
+    }
+  }
 }
