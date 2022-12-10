@@ -1,4 +1,5 @@
 using tryitter.Models;
+// using Microsoft.AspNetCore.Mvc;
 
 namespace tryitter.Service {
   public interface IAccountService {
@@ -7,7 +8,7 @@ namespace tryitter.Service {
     string GenerateToken(Account user);
     // ClaimsIdentity AddClaims(Account user);
     bool AddAccount(Account user);
-    Account GetAccountById(int accountId);
+    Account? GetAccountById(int accountId);
     IEnumerable<Account> GetAllAccounts();
     Account UpdateAccount(int accountId, Account user);
     bool DeleteAccount(int accountId);

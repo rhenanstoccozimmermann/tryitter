@@ -40,7 +40,7 @@ namespace tryitter.Controllers
         public IActionResult GetAccountById(int accountId)
         {
             var result = _service.GetAccountById(accountId);
-            if (result == false)
+            if (result is not Account)
             {
                 return NotFound();
             }
@@ -53,7 +53,7 @@ namespace tryitter.Controllers
         public IActionResult GetAllAccounts()
         {
             var result = _service.GetAllAccounts();
-            if (result == false)
+            if (result is not IEnumerable<tryitter.Models.Account>)
             {
                 return NotFound();
             }
@@ -71,7 +71,7 @@ namespace tryitter.Controllers
         public IActionResult UpdateAccount(int accountId, Account account)
         {
             var result = _service.UpdateAccount(accountId, account);
-            if (result == false)
+            if (result is not Account)
             {
                 return NotFound();
             }

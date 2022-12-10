@@ -1,4 +1,5 @@
 using System;
+using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -21,7 +22,7 @@ namespace tryitter.Service {
       bool isLogged = false;
 
       try {
-        var model = _repository.GetById(user.AccountId);
+        var model = _repository.GetAccountById(user.AccountId);
 
         if (model is null)
           throw new ArgumentNullException("dados invalidos");
@@ -62,7 +63,7 @@ return tokenHandler.WriteToken(token);
     public bool AddAccount(Account model)
     {
       var account = _repository.GetAccountByUserData(model);
-      if (account)
+      if (account is not Account)
       {
         return false;
       }
@@ -70,12 +71,12 @@ return tokenHandler.WriteToken(token);
       return true;
     }
 
-    public Account GetAccountById(int accountId)
+    public Account? GetAccountById(int accountId)
     {
       var account = _repository.GetAccountById(accountId);
-      if (account == null)
+      if (account is not Account )
       {
-          return false;
+          return null;
       }
       return account;
     }
@@ -83,21 +84,21 @@ return tokenHandler.WriteToken(token);
     public IEnumerable<Account> GetAllAccounts()
     {
       var accounts = _repository.GetAllAccounts();
-      if (accounts == null)
+      if (accounts is not IEnumerable<Account>)
       {
-        return false;
+        return null;
       }
       return _repository.GetAllAccounts();
     }
 
-    public Account UpdateAccount(int accountId, Account model)
+    public Account? UpdateAccount(int accountId, Account model)
     {
       var account = GetAccountById(accountId);
       if (account == null)
       {
-          return false;
+          return null;
       }
-      newAccount = _repository.UpdateAccount(model);
+      var newAccount = _repository.UpdateAccount(accountId, model);
       return newAccount;
     }
 

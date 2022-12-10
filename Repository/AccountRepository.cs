@@ -38,7 +38,7 @@ namespace tryitter.Repository
     {
         var account = new Account();
         try {
-                account = _context.Accounts.First(a=>a.name == model.Name && a.email == model.Email);
+                account = _context.Accounts.First(a=>a.Name == model.Name && a.Email == model.Email);
             } catch(Exception e) {
                     System.Diagnostics.Debug.WriteLine(e.Message);
             } 

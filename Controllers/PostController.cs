@@ -37,7 +37,7 @@ namespace tryitter.Controllers
         public IActionResult GetPostsByAccountId(int accountId)
         {
             var result = _service.GetPostsByAccountId(accountId);
-            if (result == false)
+            if (result is not IEnumerable<tryitter.Models.Post>)
             {
                 return NotFound();
             }
@@ -51,7 +51,7 @@ namespace tryitter.Controllers
         public IActionResult GetPostById(int postId)
         {
             Post? result = _service.GetPostById(postId);
-            if (!result)
+            if (result is not Post)
             {
                 return NotFound();
             }

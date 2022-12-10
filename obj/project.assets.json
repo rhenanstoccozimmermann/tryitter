@@ -2185,19 +2185,19 @@
     ]
   },
   "packageFolders": {
-    "/home/rsz/.nuget/packages/": {}
+    "/home/ingrid/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/rsz/Desktop/Aceleração-CS-Projetos/tryitter/tryitter.csproj",
+      "projectUniqueName": "/home/ingrid/aceleraçao/tryitter/tryitter.csproj",
       "projectName": "tryitter",
-      "projectPath": "/home/rsz/Desktop/Aceleração-CS-Projetos/tryitter/tryitter.csproj",
-      "packagesPath": "/home/rsz/.nuget/packages/",
-      "outputPath": "/home/rsz/Desktop/Aceleração-CS-Projetos/tryitter/obj/",
+      "projectPath": "/home/ingrid/aceleraçao/tryitter/tryitter.csproj",
+      "packagesPath": "/home/ingrid/.nuget/packages/",
+      "outputPath": "/home/ingrid/aceleraçao/tryitter/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/rsz/.nuget/NuGet/NuGet.Config"
+        "/home/ingrid/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -2259,7 +2259,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.401/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.400/RuntimeIdentifierGraph.json"
       }
     }
   }
