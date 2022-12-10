@@ -9,10 +9,14 @@ namespace tryitter.Models
         [Key]
         public int PostId { get; set; }
         [ForeignKey("AccountId")]
-        public int? AccountId { get; set; }
-        public string Image {get; set;}
+        public int AccountId { get; set; }
+        public virtual Account? Account {get; set; }
         
-        [MaxLength(300, ErrorMessage="Número máximo atingido")]
-        public string PostText {get; set;}
+        [Column(TypeName = "varchar(300)")]
+        public string Image {get; set;} = string.Empty;
+        
+        [Required, MaxLength(300, ErrorMessage="Número máximo atingido"), 
+        Column(TypeName = "varchar(300)")]
+        public string Content {get; set;} = string.Empty;
     }
 }
