@@ -35,14 +35,9 @@ namespace tryitter.Service {
       return _postRepository.GetPostsByAccountId(accountId);
     }
 
-    public Post? GetPostById(int postId)
+    public Post GetPostById(int postId)
     {
-      var post = _postRepository.GetPostById(postId);
-      if (post == null)
-      {
-          return null;
-      }
-      return post;
+      return _postRepository.GetPostById(postId);
     }
 
     public bool UpdatePost(int postId, string postContent)
@@ -52,7 +47,7 @@ namespace tryitter.Service {
       {
           return false;
       }
-      _postRepository.UpdatePost(post);
+      _postRepository.UpdatePost(post, postContent);
       return true;
     }
 

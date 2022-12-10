@@ -50,8 +50,8 @@ namespace tryitter.Controllers
         [HttpGet("post/{id}")]
         public IActionResult GetPostById(int postId)
         {
-            var result = _service.GetPostById(postId);
-            if (result == false)
+            Post? result = _service.GetPostById(postId);
+            if (!result)
             {
                 return NotFound();
             }
@@ -81,7 +81,7 @@ namespace tryitter.Controllers
             {
                 return NotFound();
             }
-            return NoContent("O seu post foi removido com sucesso");
+            return NoContent();
         }
     }
 }

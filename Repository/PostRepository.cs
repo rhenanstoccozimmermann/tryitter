@@ -13,10 +13,12 @@ namespace tryitter.Repository
 
         public void AddPost(Account account, string postContent)
         {
-            var post = new Post();
-            post.accountId = account.accountId;
-            post.content = postContent;
-            _context.Posts.Add(post);
+        var post = new Post
+        {
+            AccountId = account.AccountId,
+            Content = postContent
+        };
+        _context.Posts.Add(post);
             _context.SaveChanges();
         }
 
@@ -25,14 +27,14 @@ namespace tryitter.Repository
             return _context.Posts.Where(post => post.AccountId == accountId);
         }
 
-        public Post GetPostById(int postId)
+        public Post? GetPostById(int postId)
         {
             return _context.Posts.Find(postId)!;
         }
 
-        public void UpdatePost(Post post)
+        public void UpdatePost(Post post, string postContent)
         {
-            post.content = postContent;
+            post.Content = postContent;
             _context.Posts.Update(post);
             _context.SaveChanges();
         }

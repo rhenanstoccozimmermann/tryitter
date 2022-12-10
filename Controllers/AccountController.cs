@@ -88,7 +88,7 @@ namespace tryitter.Controllers
             {
                 return NotFound();
             }
-            return NoContent("A sua conta foi removida com sucesso");
+            return NoContent();
         }
     }
 }
