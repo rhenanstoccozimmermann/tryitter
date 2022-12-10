@@ -1,16 +1,19 @@
 using Microsoft.AspNetCore.Mvc;
-using tryitter.Repository;
+using tryitter;
+using tryitter.Models;
+using tryitter.Service;
 
 namespace tryitter.Controllers
 {
     [ApiController]
     [Route("api")]
-    public class PostController : Controller
+    public class PostController : ControllerBase
     {
-        private readonly IPostRepository _repository;
-        public PostController(IPostRepository repository)
+        private readonly IPostService _service;
+
+        public PostController(IPostService service)
         {
-            _repository = repository;
+            _service = service;
         }
 
         /// <summary> This function add a post</summary>
@@ -20,13 +23,12 @@ namespace tryitter.Controllers
         [HttpPost("post")]
         public IActionResult AddPost(int accountId, string postContent)
         {
-            var account = _repository.GetAccountById(accountId);
-            if (account == null)
+            var result = _service.AddPost(accountId, postContent);
+            if (result == false)
             {
                 return NotFound();
             }
-            _repository.AddPost(account, postContent);
-            return Ok(postContent);
+            return Ok("O seu post foi incluído com sucesso");
         }
 
         /// <summary> This function return a list of posts</summary>
@@ -35,41 +37,40 @@ namespace tryitter.Controllers
         [HttpGet("post/account/{id}")]
         public IActionResult GetPostsByAccountId(int accountId)
         {
-            var account = _repository.GetAccountById(accountId);
-            if (account == null)
+            var result = _service.GetPostsByAccountId(accountId);
+            if (result == false)
             {
                 return NotFound();
             }
-            return Ok(_repository.GetPostsByAccountId(accountId));
+            return Ok(result);
         }
 
         /// <summary> This function return a post</summary>
         /// <param name="postId"> a post id</param>
         /// <returns> a post</returns>
         [HttpGet("post/{id}")]
-        public IActionResult GetPost(int postId)
+        public IActionResult GetPostById(int postId)
         {
-            var post = _repository.GetPostById(postId);
-            if (post == null)
+            var result = _service.GetPostById(postId);
+            if (result == false)
             {
                 return NotFound();
             }
-            return Ok(post);
+            return Ok(result);
         }
 
         /// <summary> This function update a post</summary>
         /// <param name="postId"> a post id</param>
         /// <returns> a post</returns>
         [HttpPut("post/{id}")]
-        public IActionResult UpdatePost(int postId)
+        public IActionResult UpdatePost(int postId, string postContent)
         {
-            var post = _repository.GetPostById(postId);
-            if (post == null)
+            var result = _service.UpdatePost(postId, postContent);
+            if (result == false)
             {
                 return NotFound();
             }
-            _repository.UpdatePost(postId);
-            return Ok(postId);
+            return Ok("O seu post foi alterado com sucesso");
         }
 
         /// <summary> This function delete a post</summary>
@@ -78,13 +79,12 @@ namespace tryitter.Controllers
         [HttpDelete("post/{id}")]
         public IActionResult DeletePost(int postId)
         {
-            var post = _repository.GetPostById(postId);
-            if (post == null)
+            var result = _service.DeletePost(postId);
+            if (result == false)
             {
                 return NotFound();
             }
-            _repository.DeletePost(postId);
-            return Ok(postId); // poderia retornar tbm, talvez, "NoContent"
+            return NoContent("O seu post foi removido com sucesso");
         }
     }
 }

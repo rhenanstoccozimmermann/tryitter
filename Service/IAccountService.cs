@@ -5,5 +5,6 @@ namespace tryitter.Service {
 
     bool Login(Account user);
     string GenerateToken(Account user);
+    Account GetAccountById(int accountId);
   }
 }

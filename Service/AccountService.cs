@@ -64,7 +64,7 @@ return tokenHandler.WriteToken(token);
       throw new NotImplementedException();
     }
 
-    public Account GetById(int id)
+    public Account GetAccountById(int accountId)
     {
       throw new NotImplementedException();
     }

@@ -4,8 +4,8 @@ namespace tryitter.Repository
 {
     public class AccountRepository : IAccountRepository
     {
-        private readonly IPostContext _context;
-        public AccountRepository(IPostContext context)
+        private readonly IContext _context;
+        public AccountRepository(IContext context)
         {
             _context = context;
         }
@@ -70,6 +70,10 @@ namespace tryitter.Repository
                     System.Diagnostics.Debug.WriteLine(e.Message);
             }
             return account; 
+    }
+    public Account GetAccountById(int accountId)
+    {
+        return _context.Accounts.Find(accountId)!;
     }
   }
 }

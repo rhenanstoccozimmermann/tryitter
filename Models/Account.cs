@@ -15,6 +15,8 @@ namespace tryitter.Models
         public string Module { get; set; } = default!;
         [Required]
         public string Password { get; set; } = default!;
-        
+        [Required]
+        public int Status { get; set; } = default!;
+        public List<Post> Posts { get; set; } = default!;
     }
 }
