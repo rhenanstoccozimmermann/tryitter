@@ -59,29 +59,57 @@ return tokenHandler.WriteToken(token);
             return claims;
         }
 
-    public Account? Add(Account model)
+    public bool AddAccount(Account model)
     {
-      throw new NotImplementedException();
+      var account = _repository.GetAccountByUserData(model);
+      if (account)
+      {
+        return false;
+      }
+      _repository.AddAccount(account);
+      return true;
     }
 
     public Account GetAccountById(int accountId)
     {
-      throw new NotImplementedException();
+      var account = _repository.GetAccountById(accountId);
+      if (account == null)
+      {
+          return false;
+      }
+      return account;
     }
 
-    public void Delete(int id)
+    public IEnumerable<Account> GetAllAccounts()
     {
-      throw new NotImplementedException();
+      var accounts = _repository.GetAllAccounts();
+      if (accounts == null)
+      {
+        return false;
+      }
+      return _repository.GetAllAccounts();
     }
 
-    public Account Update(int id, Account model)
+    public Account UpdateAccount(int accountId, Account model)
     {
-      throw new NotImplementedException();
+      var account = GetAccountById(accountId);
+      if (account == null)
+      {
+          return false;
+      }
+      newAccount = _repository.UpdateAccount(model);
+      return newAccount;
     }
 
-    public IEnumerable<Account> GetAll()
+    public bool DeleteAccount(int accountId)
     {
-      throw new NotImplementedException();
+      var account = _repository.GetAccountById(accountId);
+      if (account == null)
+      {
+          return false;
+      }
+      _repository.DeleteAccount(accountId);
+      return true;
     }
   }
 }

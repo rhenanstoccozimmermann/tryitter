@@ -10,7 +10,7 @@ namespace tryitter.Repository
             _context = context;
         }
 
-    public Account? Add(Account model)
+    public Account? AddAccount(Account model)
     {
         try {
             _context.Accounts.Add(model);
@@ -23,29 +23,7 @@ namespace tryitter.Repository
         
     }
 
-    public void Delete(int id)
-    {
-      try {
-            var account = _context.Accounts.First(a=>a.AccountId == id);
-            _context.Accounts.Remove(account);
-            _context.SaveChanges();
-        } catch(Exception e) {
-            System.Diagnostics.Debug.WriteLine(e.Message);
-        }
-    }
-
-    public IEnumerable<Account> GetAll()
-    {
-        var list = new List<Account>();
-        try {
-            list = _context.Accounts.ToList();
-        } catch(Exception e) {
-            System.Diagnostics.Debug.WriteLine(e.Message);
-        }
-        return list;
-    }
-
-    public Account GetById(int id)
+    public Account GetAccountById(int id)
     {
         var account = new Account();
         try {
@@ -56,7 +34,29 @@ namespace tryitter.Repository
         return account;  
     }
 
-    public Account Update(int id, Account model)
+    public Account GetAccountByUserData(Account model)
+    {
+        var account = new Account();
+        try {
+                account = _context.Accounts.First(a=>a.name == model.Name && a.email == model.Email);
+            } catch(Exception e) {
+                    System.Diagnostics.Debug.WriteLine(e.Message);
+            } 
+        return account;  
+    }
+
+    public IEnumerable<Account> GetAllAccounts()
+    {
+        var list = new List<Account>();
+        try {
+            list = _context.Accounts.ToList();
+        } catch(Exception e) {
+            System.Diagnostics.Debug.WriteLine(e.Message);
+        }
+        return list;
+    }
+
+    public Account UpdateAccount(int id, Account model)
     {
         var account = new Account();
         try {
@@ -71,9 +71,16 @@ namespace tryitter.Repository
             }
             return account; 
     }
-    public Account GetAccountById(int accountId)
+
+    public void DeleteAccount(int id)
     {
-        return _context.Accounts.Find(accountId)!;
+      try {
+            var account = _context.Accounts.First(a=>a.AccountId == id);
+            _context.Accounts.Remove(account);
+            _context.SaveChanges();
+        } catch(Exception e) {
+            System.Diagnostics.Debug.WriteLine(e.Message);
+        }
     }
   }
 }

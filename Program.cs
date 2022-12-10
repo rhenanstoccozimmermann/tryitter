@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 //Scopes
 #region Context
-builder.Services.AddScoped<IPostContext, PostContext>();
+builder.Services.AddScoped<IContext, Context>();
 #endregion
 
 #region Repositories

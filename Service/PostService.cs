@@ -25,22 +25,22 @@ namespace tryitter.Service {
       return true;
     }
 
-    public List<Post> GetPostsByAccountId(int accountId)
+    public IEnumerable<Post>? GetPostsByAccountId(int accountId)
     {
       var account = _accountRepository.GetAccountById(accountId);
       if (account == null)
       {
-        return false;
+        return null;
       }
       return _postRepository.GetPostsByAccountId(accountId);
     }
 
-    public Post GetPostById(int postId)
+    public Post? GetPostById(int postId)
     {
       var post = _postRepository.GetPostById(postId);
       if (post == null)
       {
-          return false;
+          return null;
       }
       return post;
     }
@@ -56,7 +56,7 @@ namespace tryitter.Service {
       return true;
     }
 
-    public bool Delete(int id)
+    public bool DeletePost(int postId)
     {
       var post = _postRepository.GetPostById(postId);
       if (post == null)

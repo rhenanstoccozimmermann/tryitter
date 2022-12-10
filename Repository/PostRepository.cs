@@ -20,7 +20,7 @@ namespace tryitter.Repository
             _context.SaveChanges();
         }
 
-        public List<Post> GetPostsByAccountId(int accountId)
+        public IEnumerable<Post> GetPostsByAccountId(int accountId)
         {
             return _context.Posts.Where(post => post.AccountId == accountId);
         }
