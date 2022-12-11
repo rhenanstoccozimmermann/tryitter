@@ -4,11 +4,10 @@ namespace tryitter.Repository
 {
     public interface IAccountRepository
     {
-      Account? AddAccount(Account model);
-      Account GetAccountById(int id);
-      Account GetAccountByUserData(Account model);
-      IEnumerable<Account> GetAllAccounts();
-      Account UpdateAccount(int id, Account model);
-      void DeleteAccount(int id);   
+      Account? AddAccount(Account account);
+      Account? GetAccountById(int accountId);
+      IEnumerable<Account>? GetAllAccounts();
+      Account? UpdateAccount(Account account, string password, string module, int status);
+      Account? DeleteAccount(Account account);   
     }
 }

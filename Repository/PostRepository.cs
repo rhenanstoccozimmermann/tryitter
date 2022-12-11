@@ -1,5 +1,5 @@
 using tryitter.Models;
-using Microsoft.EntityFrameworkCore;
+// using Microsoft.EntityFrameworkCore;
 
 namespace tryitter.Repository
 {
@@ -11,13 +11,8 @@ namespace tryitter.Repository
             _context = context;
         }
 
-        public Post? AddPost(int accountId, string postContent)
+        public Post? AddPost(Post post)
         {
-            var post = new Post
-            {
-                AccountId = accountId,
-                Content = postContent
-            };
             _context.Posts.Add(post);
             _context.SaveChanges();
             return post;

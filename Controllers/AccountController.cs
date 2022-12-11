@@ -17,26 +17,22 @@ namespace tryitter.Controllers
         }
 
         /// <summary>This function adds an account</summary>
-        /// <param name="name">the user name</param>
-        /// <param name="email">the user email</param>
-        /// <param name="password">the user password</param>
-        /// <param name="module">the user actual module</param>
-        /// <param name="status">the user actual status</param>
+        /// <param name="account">the new account</param>
         [HttpPost("account")]
         public IActionResult AddAccount(Account account)
         {
             var result = _service.AddAccount(account);
-            if (result is false)
+            if (result is null)
             {
-              return BadRequest("Já existe uma conta com este nome e email");
+              return BadRequest("Já existe uma conta com este nome e/ou email");
             }
-            return Ok("A sua conta foi criada com sucesso");
+            return Ok(result);
         }
 
         /// <summary>This function returns an account</summary>
         /// <param name="accountId">the account id</param>
         /// <returns>the account</returns>
-        [HttpGet("account/{id}")]
+        [HttpGet("account/{accountId}")]
         public IActionResult GetAccountById(int accountId)
         {
             var result = _service.GetAccountById(accountId);
@@ -67,10 +63,10 @@ namespace tryitter.Controllers
         /// <param name="password">the user password</param>
         /// <param name="module">the user actual module</param>
         /// <param name="status">the user actual status</param>
-        [HttpPut("account/{id}")]
-        public IActionResult UpdateAccount(int accountId, Account account)
+        [HttpPut("account/{accountId}")]
+        public IActionResult UpdateAccount(int accountId, string password, string module, int status)
         {
-            var result = _service.UpdateAccount(accountId, account);
+            var result = _service.UpdateAccount(accountId, password, module, status);
             if (result is null)
             {
                 return NotFound();
@@ -80,11 +76,11 @@ namespace tryitter.Controllers
 
         /// <summary>This function deletes an account</summary>
         /// <param name="accountId">the account id</param>
-        [HttpDelete("account/{id}")]
+        [HttpDelete("account/{accountId}")]
         public IActionResult DeleteAccount(int accountId)
         {
             var result = _service.DeleteAccount(accountId);
-            if (result is false)
+            if (result is null)
             {
                 return NotFound();
             }

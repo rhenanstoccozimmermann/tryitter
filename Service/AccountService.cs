@@ -60,41 +60,39 @@ return tokenHandler.WriteToken(token);
         return claims;
     }
 
-    public bool AddAccount(Account model)
+    public Account? AddAccount(Account account)
     {
-      var account = _repository.GetAccountByUserData(model);
-      if (account is null)
-      {
-        return false;
-      }
-      _repository.AddAccount(account);
-      return true;
+      return _repository.AddAccount(account);
     }
 
-    public Account GetAccountById(int accountId)
+    public Account? GetAccountById(int accountId)
     {
       return _repository.GetAccountById(accountId);
     }
 
-    public IEnumerable<Account> GetAllAccounts()
+    public IEnumerable<Account>? GetAllAccounts()
     {
       return _repository.GetAllAccounts();
     }
 
-    public Account UpdateAccount(int accountId, Account model)
+    public Account? UpdateAccount(int accountId, string password, string module, int status)
     {
-      return _repository.UpdateAccount(accountId, model);
+      var result = _repository.GetAccountById(accountId);
+      if (result is null)
+      {
+          return null;
+      }
+      return _repository.UpdateAccount(result, password, module, status);
     }
 
-    public bool DeleteAccount(int accountId)
+    public Account? DeleteAccount(int accountId)
     {
-      var account = _repository.GetAccountById(accountId);
-      if (account == null)
+      var result = _repository.GetAccountById(accountId);
+      if (result is null)
       {
-          return false;
+          return null;
       }
-      _repository.DeleteAccount(accountId);
-      return true;
+      return _repository.DeleteAccount(result);
     }
   }
 }

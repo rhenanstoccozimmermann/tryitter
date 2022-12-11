@@ -8,11 +8,11 @@ namespace tryitter.Models
     {
     // internal object content;
 
-    [Key]
+        [Key]
         public int PostId { get; set; }
         [ForeignKey("AccountId")]
         public int AccountId { get; set; }
-        public virtual Account? Account {get; set; }
+        // public virtual Account? Account {get; set; }
         
         [Column(TypeName = "varchar(300)")]
         public string Image {get; set;} = string.Empty;
