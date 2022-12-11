@@ -2185,24 +2185,31 @@
     ]
   },
   "packageFolders": {
-    "/home/rsz/.nuget/packages/": {}
+    "C:\\Users\\jwilk\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/rsz/Desktop/Aceleração-CS-Projetos/tryitter/tryitter.csproj",
+      "projectUniqueName": "C:\\Users\\jwilk\\Projetos\\tryitter\\tryitter.csproj",
       "projectName": "tryitter",
-      "projectPath": "/home/rsz/Desktop/Aceleração-CS-Projetos/tryitter/tryitter.csproj",
-      "packagesPath": "/home/rsz/.nuget/packages/",
-      "outputPath": "/home/rsz/Desktop/Aceleração-CS-Projetos/tryitter/obj/",
+      "projectPath": "C:\\Users\\jwilk\\Projetos\\tryitter\\tryitter.csproj",
+      "packagesPath": "C:\\Users\\jwilk\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jwilk\\Projetos\\tryitter\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/home/rsz/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\jwilk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2259,7 +2266,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.401/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }
