@@ -13,34 +13,59 @@ namespace tryitter.Repository
 
         public Post? AddPost(Post post)
         {
-            _context.Posts.Add(post);
-            _context.SaveChanges();
-            return post;
+            try {
+                _context.Posts.Add(post);
+                _context.SaveChanges();
+                return post;
+            } catch(Exception e) {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+                return null;
+            } 
         }
 
         public IEnumerable<Post>? GetPostsByAccountId(int accountId)
         {
-            return _context.Posts.Where(post => post.AccountId == accountId);
+            try {
+                return _context.Posts.Where(post => post.AccountId == accountId);
+            } catch(Exception e) {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+                return null;
+            } 
         }
 
         public Post? GetPostById(int postId)
         {
-            return _context.Posts.Find(postId);
+            try {
+                return _context.Posts.Find(postId);
+            } catch(Exception e) {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+                return null;
+            } 
         }
 
         public Post? UpdatePost(Post post, string postContent)
         {
-            post.Content = postContent;
-            _context.Posts.Update(post);
-            _context.SaveChanges();
-            return post;
+            try {
+                post.Content = postContent;
+                _context.Posts.Update(post);
+                _context.SaveChanges();
+                return post;
+            } catch(Exception e) {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+                return null;
+            } 
         }
 
         public Post? DeletePost(Post post)
         {
-            _context.Posts.Remove(post);
-            _context.SaveChanges();
-            return post;
+            try {
+                _context.Posts.Remove(post);
+                _context.SaveChanges();
+                return post;
+            } catch(Exception e) {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+                return null;
+            } 
         }
     }
 }

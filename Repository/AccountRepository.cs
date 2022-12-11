@@ -12,9 +12,14 @@ namespace tryitter.Repository
 
         public Account? AddAccount(Account account)
         {
-            _context.Accounts.Add(account);
-            _context.SaveChanges();
-            return account;
+            try {
+                _context.Accounts.Add(account);
+                _context.SaveChanges();
+                return account;
+            } catch(Exception e) {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+                return null;
+            }
             // try {
             //     _context.Accounts.Add(model);
             //     _context.SaveChanges();
@@ -27,7 +32,12 @@ namespace tryitter.Repository
 
         public Account? GetAccountById(int accountId)
         {
-            return _context.Accounts.First(a => a.AccountId == accountId);
+            try {
+                return _context.Accounts.First(a => a.AccountId == accountId);
+            } catch(Exception e) {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+                return null;
+            } 
             // var account = new Account();
             // try {
             //         account = _context.Accounts.First(a=>a.AccountId == id);
@@ -39,7 +49,12 @@ namespace tryitter.Repository
 
         public IEnumerable<Account>? GetAllAccounts()
         {
-            return _context.Accounts.ToList();
+            try {
+                return _context.Accounts.ToList();
+            } catch(Exception e) {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+                return null;
+            }
             // var list = new List<Account>();
             // try {
             //     list = _context.Accounts.ToList();
@@ -51,12 +66,17 @@ namespace tryitter.Repository
 
         public Account? UpdateAccount(Account account, string password, string module, int status)
         {
-            account.Password = password;
-            account.Module = module;
-            account.Status = status;
-            _context.Accounts.Update(account);
-            _context.SaveChanges();
-            return account;
+            try {
+                account.Password = password;
+                account.Module = module;
+                account.Status = status;
+                _context.Accounts.Update(account);
+                _context.SaveChanges();
+                return account;
+            } catch(Exception e) {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+                return null;
+            }
             // var account = new Account();
             // try {
             //         account = _context.Accounts.First(a=>a.AccountId == id);
@@ -73,9 +93,14 @@ namespace tryitter.Repository
 
         public Account? DeleteAccount(Account account)
         {
-            _context.Accounts.Remove(account);
-            _context.SaveChanges();
-            return account;
+            try {
+                _context.Accounts.Remove(account);
+                _context.SaveChanges();
+                return account;
+            } catch(Exception e) {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+                return null;
+            }
         //   try {
         //         var account = _context.Accounts.First(a=>a.AccountId == id);
         //         _context.Accounts.Remove(account);

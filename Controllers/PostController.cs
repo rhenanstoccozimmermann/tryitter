@@ -24,7 +24,7 @@ namespace tryitter.Controllers
             var result = _service.AddPost(post);
             if (result is null)
             {
-                return NotFound();
+                return NotFound("Conta não encontrada");
             }
             return Ok(result);
         }
@@ -38,7 +38,7 @@ namespace tryitter.Controllers
             var result = _service.GetPostsByAccountId(accountId);
             if (result is null)
             {
-                return NotFound();
+                return NotFound("Nenhum post encontrado");
             }
             return Ok(result);
         }
@@ -52,7 +52,7 @@ namespace tryitter.Controllers
             var result = _service.GetPostById(postId);
             if (result is null)
             {
-                return NotFound();
+                return NotFound("Post não encontrado");
             }
             return Ok(result);
         }
@@ -65,7 +65,7 @@ namespace tryitter.Controllers
             var result = _service.UpdatePost(postId, postContent);
             if (result is null)
             {
-                return NotFound();
+                return NotFound("Post não encontrado");
             }
             return Ok(result);
         }
@@ -78,7 +78,7 @@ namespace tryitter.Controllers
             var result = _service.DeletePost(postId);
             if (result is null)
             {
-                return NotFound();
+                return NotFound("Post não encontrado");
             }
             return NoContent();
         }

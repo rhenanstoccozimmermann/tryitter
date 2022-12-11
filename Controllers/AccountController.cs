@@ -24,7 +24,7 @@ namespace tryitter.Controllers
             var result = _service.AddAccount(account);
             if (result is null)
             {
-              return BadRequest("Já existe uma conta com este nome e/ou email");
+              return BadRequest("Dados inválidos");
             }
             return Ok(result);
         }
@@ -38,7 +38,7 @@ namespace tryitter.Controllers
             var result = _service.GetAccountById(accountId);
             if (result is null)
             {
-                return NotFound();
+                return NotFound("Conta não encontrada");
             }
             return Ok(result);
         }
@@ -51,7 +51,7 @@ namespace tryitter.Controllers
             var result = _service.GetAllAccounts();
             if (result is null)
             {
-                return NotFound();
+                return NotFound("Nenhuma conta encontrada");
             }
             return Ok(result);
         }
@@ -69,7 +69,7 @@ namespace tryitter.Controllers
             var result = _service.UpdateAccount(accountId, password, module, status);
             if (result is null)
             {
-                return NotFound();
+                return NotFound("Conta não encontrada");
             }
             return Ok(result);
         }
@@ -82,7 +82,7 @@ namespace tryitter.Controllers
             var result = _service.DeleteAccount(accountId);
             if (result is null)
             {
-                return NotFound();
+                return NotFound("Conta não encontrada");
             }
             return NoContent();
         }
