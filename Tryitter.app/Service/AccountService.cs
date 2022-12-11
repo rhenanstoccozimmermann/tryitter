@@ -61,8 +61,16 @@ return tokenHandler.WriteToken(token);
     }
 
     public Account? AddAccount(Account account)
-    {
-      return _repository.AddAccount(account);
+    {  
+      Account? response = null;
+      try 
+      {
+        if (validateAccount(account))
+            response = _repository.AddAccount(account);
+      } catch (Exception e) {
+            System.Diagnostics.Debug.WriteLine(e.Message);
+      }
+      return response;
     }
 
     public Account? GetAccountById(int accountId)
@@ -93,6 +101,24 @@ return tokenHandler.WriteToken(token);
           return null;
       }
       return _repository.DeleteAccount(result);
+    }
+
+    private bool validateAccount(Account model) {
+      bool isValid = false;
+      
+      if (string.IsNullOrWhiteSpace(model.Name))
+        throw new InvalidOperationException("Nome não pode ser nulo ou vazio");
+      if (string.IsNullOrWhiteSpace(model.Email))
+        throw new InvalidOperationException("Email não pode ser nulo ou vazio");
+      if (string.IsNullOrWhiteSpace(model.Module))
+        throw new InvalidOperationException("Módulo não pode ser nulo ou vazio");
+      if (model.AccountId == 0)
+        throw new InvalidOperationException("Id não pode ser 0");
+      if (model.Status == 0)
+        throw new InvalidOperationException("Nome não pode ser 0");
+      
+      isValid = true;
+      return isValid;
     }
   }
 }

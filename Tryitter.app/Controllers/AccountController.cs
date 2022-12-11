@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using tryitter;
 using tryitter.Models;
@@ -32,6 +33,7 @@ namespace tryitter.Controllers
         /// <summary>This function returns an account</summary>
         /// <param name="accountId">the account id</param>
         /// <returns>the account</returns>
+        [Authorize]
         [HttpGet("account/{accountId}")]
         public IActionResult GetAccountById(int accountId)
         {
@@ -45,6 +47,7 @@ namespace tryitter.Controllers
 
         /// <summary>This function return a list of accounts</summary>
         /// <returns>a account list</returns>
+        [Authorize]
         [HttpGet("account")]
         public IActionResult GetAllAccounts()
         {
@@ -63,6 +66,7 @@ namespace tryitter.Controllers
         /// <param name="password">the user password</param>
         /// <param name="module">the user actual module</param>
         /// <param name="status">the user actual status</param>
+        [Authorize]
         [HttpPut("account/{accountId}")]
         public IActionResult UpdateAccount(int accountId, string password, string module, int status)
         {
@@ -76,6 +80,7 @@ namespace tryitter.Controllers
 
         /// <summary>This function deletes an account</summary>
         /// <param name="accountId">the account id</param>
+        [Authorize]
         [HttpDelete("account/{accountId}")]
         public IActionResult DeleteAccount(int accountId)
         {
