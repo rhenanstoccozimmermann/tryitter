@@ -6,7 +6,9 @@ namespace tryitter.Models
     // os posts precisam ter um tamanho máximo de 300
     public class Post
     {
-        [Key]
+    // internal object content;
+
+    [Key]
         public int PostId { get; set; }
         [ForeignKey("AccountId")]
         public int AccountId { get; set; }

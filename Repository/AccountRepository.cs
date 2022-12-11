@@ -31,7 +31,7 @@ namespace tryitter.Repository
             } catch(Exception e) {
                     System.Diagnostics.Debug.WriteLine(e.Message);
             } 
-        return account;  
+        return account;
     }
 
     public Account GetAccountByUserData(Account model)

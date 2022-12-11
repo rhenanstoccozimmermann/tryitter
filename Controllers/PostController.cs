@@ -23,11 +23,11 @@ namespace tryitter.Controllers
         public IActionResult AddPost(int accountId, string postContent)
         {
             var result = _service.AddPost(accountId, postContent);
-            if (result == false)
+            if (result is null)
             {
                 return NotFound();
             }
-            return Ok("O seu post foi incluído com sucesso");
+            return Ok(result);
         }
 
         /// <summary>This function returns a list of posts</summary>
@@ -37,7 +37,7 @@ namespace tryitter.Controllers
         public IActionResult GetPostsByAccountId(int accountId)
         {
             var result = _service.GetPostsByAccountId(accountId);
-            if (result is not IEnumerable<tryitter.Models.Post>)
+            if (result is null)
             {
                 return NotFound();
             }
@@ -50,8 +50,8 @@ namespace tryitter.Controllers
         [HttpGet("post/{id}")]
         public IActionResult GetPostById(int postId)
         {
-            Post? result = _service.GetPostById(postId);
-            if (result is not Post)
+            var result = _service.GetPostById(postId);
+            if (result is null)
             {
                 return NotFound();
             }
@@ -64,11 +64,11 @@ namespace tryitter.Controllers
         public IActionResult UpdatePost(int postId, string postContent)
         {
             var result = _service.UpdatePost(postId, postContent);
-            if (result == false)
+            if (result is null)
             {
                 return NotFound();
             }
-            return Ok("O seu post foi alterado com sucesso");
+            return Ok(result);
         }
 
         /// <summary>This function deletes a post</summary>
@@ -77,7 +77,7 @@ namespace tryitter.Controllers
         public IActionResult DeletePost(int postId)
         {
             var result = _service.DeletePost(postId);
-            if (result == false)
+            if (result is null)
             {
                 return NotFound();
             }

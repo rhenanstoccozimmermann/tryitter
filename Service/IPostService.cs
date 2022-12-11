@@ -2,10 +2,10 @@ using tryitter.Models;
 
 namespace tryitter.Service {
   public interface IPostService {
-      bool AddPost(int accountId, string postContent);
-      IEnumerable<Post> GetPostsByAccountId(int accountId);
-      Post GetPostById(int postId);
-      bool UpdatePost(int postId, string postContent);
-      bool DeletePost(int postId);
+      Post? AddPost(int accountId, string postContent);
+      IEnumerable<Post>? GetPostsByAccountId(int accountId);
+      Post? GetPostById(int postId);
+      Post? UpdatePost(int postId, string postContent);
+      Post? DeletePost(int postId);
   }
 }

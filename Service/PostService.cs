@@ -14,52 +14,49 @@ namespace tryitter.Service {
       _accountRepository = accountRepository;
     }
 
-    public bool AddPost(int accountId, string postContent)
+    public Post? AddPost(int accountId, string postContent)
     {
       var account = _accountRepository.GetAccountById(accountId);
-      if (account == null)
+      if (account is null)
       {
-        return false;
+        return null;
       }
-      _postRepository.AddPost(account, postContent);
-      return true;
+      return _postRepository.AddPost(accountId, postContent);
     }
 
     public IEnumerable<Post>? GetPostsByAccountId(int accountId)
     {
       var account = _accountRepository.GetAccountById(accountId);
-      if (account == null)
+      if (account is null)
       {
         return null;
       }
       return _postRepository.GetPostsByAccountId(accountId);
     }
 
-    public Post GetPostById(int postId)
+    public Post? GetPostById(int postId)
     {
       return _postRepository.GetPostById(postId);
     }
 
-    public bool UpdatePost(int postId, string postContent)
+    public Post? UpdatePost(int postId, string postContent)
     {
       var post = _postRepository.GetPostById(postId);
-      if (post == null)
+      if (post is null)
       {
-          return false;
+          return null;
       }
-      _postRepository.UpdatePost(post, postContent);
-      return true;
+      return _postRepository.UpdatePost(post, postContent);
     }
 
-    public bool DeletePost(int postId)
+    public Post? DeletePost(int postId)
     {
       var post = _postRepository.GetPostById(postId);
-      if (post == null)
+      if (post is null)
       {
-          return false;
+          return null;
       }
-      _postRepository.DeletePost(postId);
-      return true;
+      return _postRepository.DeletePost(post);
     }
   }
 }

@@ -11,38 +11,41 @@ namespace tryitter.Repository
             _context = context;
         }
 
-        public void AddPost(Account account, string postContent)
+        public Post? AddPost(int accountId, string postContent)
         {
-        var post = new Post
-        {
-            AccountId = account.AccountId,
-            Content = postContent
-        };
-        _context.Posts.Add(post);
+            var post = new Post
+            {
+                AccountId = accountId,
+                Content = postContent
+            };
+            _context.Posts.Add(post);
             _context.SaveChanges();
+            return post;
         }
 
-        public IEnumerable<Post> GetPostsByAccountId(int accountId)
+        public IEnumerable<Post>? GetPostsByAccountId(int accountId)
         {
             return _context.Posts.Where(post => post.AccountId == accountId);
         }
 
         public Post? GetPostById(int postId)
         {
-            return _context.Posts.Find(postId)!;
+            return _context.Posts.Find(postId);
         }
 
-        public void UpdatePost(Post post, string postContent)
+        public Post? UpdatePost(Post post, string postContent)
         {
             post.Content = postContent;
             _context.Posts.Update(post);
             _context.SaveChanges();
+            return post;
         }
 
-        public void DeletePost(int postId)
+        public Post? DeletePost(Post post)
         {
-            _context.Posts.Remove(GetPostById(postId));
+            _context.Posts.Remove(post);
             _context.SaveChanges();
+            return post;
         }
     }
 }

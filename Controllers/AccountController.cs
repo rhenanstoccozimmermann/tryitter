@@ -26,7 +26,7 @@ namespace tryitter.Controllers
         public IActionResult AddAccount(Account account)
         {
             var result = _service.AddAccount(account);
-            if (result == false)
+            if (result is false)
             {
               return BadRequest("Já existe uma conta com este nome e email");
             }
@@ -40,7 +40,7 @@ namespace tryitter.Controllers
         public IActionResult GetAccountById(int accountId)
         {
             var result = _service.GetAccountById(accountId);
-            if (result is not Account)
+            if (result is null)
             {
                 return NotFound();
             }
@@ -53,7 +53,7 @@ namespace tryitter.Controllers
         public IActionResult GetAllAccounts()
         {
             var result = _service.GetAllAccounts();
-            if (result is not IEnumerable<tryitter.Models.Account>)
+            if (result is null)
             {
                 return NotFound();
             }
@@ -71,7 +71,7 @@ namespace tryitter.Controllers
         public IActionResult UpdateAccount(int accountId, Account account)
         {
             var result = _service.UpdateAccount(accountId, account);
-            if (result is not Account)
+            if (result is null)
             {
                 return NotFound();
             }
@@ -84,7 +84,7 @@ namespace tryitter.Controllers
         public IActionResult DeleteAccount(int accountId)
         {
             var result = _service.DeleteAccount(accountId);
-            if (result == false)
+            if (result is false)
             {
                 return NotFound();
             }

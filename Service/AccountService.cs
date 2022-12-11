@@ -52,18 +52,18 @@ namespace tryitter.Service {
 return tokenHandler.WriteToken(token);
     }
 
-     private ClaimsIdentity AddClaims(Account user)
-        {
-            var claims = new ClaimsIdentity();
+  private ClaimsIdentity AddClaims(Account user)
+    {
+        var claims = new ClaimsIdentity();
 
-            claims.AddClaim(new Claim(ClaimTypes.Name, user.Name));
-            return claims;
-        }
+        claims.AddClaim(new Claim(ClaimTypes.Name, user.Name));
+        return claims;
+    }
 
     public bool AddAccount(Account model)
     {
       var account = _repository.GetAccountByUserData(model);
-      if (account is not Account)
+      if (account is null)
       {
         return false;
       }
@@ -71,35 +71,19 @@ return tokenHandler.WriteToken(token);
       return true;
     }
 
-    public Account? GetAccountById(int accountId)
+    public Account GetAccountById(int accountId)
     {
-      var account = _repository.GetAccountById(accountId);
-      if (account is not Account )
-      {
-          return null;
-      }
-      return account;
+      return _repository.GetAccountById(accountId);
     }
 
     public IEnumerable<Account> GetAllAccounts()
     {
-      var accounts = _repository.GetAllAccounts();
-      if (accounts is not IEnumerable<Account>)
-      {
-        return null;
-      }
       return _repository.GetAllAccounts();
     }
 
-    public Account? UpdateAccount(int accountId, Account model)
+    public Account UpdateAccount(int accountId, Account model)
     {
-      var account = GetAccountById(accountId);
-      if (account == null)
-      {
-          return null;
-      }
-      var newAccount = _repository.UpdateAccount(accountId, model);
-      return newAccount;
+      return _repository.UpdateAccount(accountId, model);
     }
 
     public bool DeleteAccount(int accountId)
