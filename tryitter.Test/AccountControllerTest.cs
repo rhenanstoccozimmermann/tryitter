@@ -116,5 +116,55 @@ namespace Tryiiter.test
             response?.Value.Should().BeEquivalentTo(account);
         }
 
+        [Fact]
+        public void Test_GetAllAccounts_Fail() {         
+            List<Account>? accounts = null;
+            
+            //Arrange
+            // declara um mock do service
+            var mockService = new Mock<IAccountService>();
+            mockService.Setup(x=>x.GetAllAccounts()).Returns(accounts);
+
+            //Act
+            // criar uma instancia do controller
+            var accountController = new AccountController(mockService.Object);
+            var response  = accountController.GetAllAccounts() as NotFoundObjectResult;
+
+            //Assert
+            // chamar a função do controller
+            response.Should().BeOfType(typeof(NotFoundObjectResult));
+            response?.Value.Should().Be("Nenhuma conta encontrada");
+        }
+
+        [Fact]
+        public void Test_GetAllAccounts_Success() {     
+            List<Account>? accounts = new()
+            {
+                new Account()
+                {
+                    AccountId = 1,
+                    Name =  "ingrid",
+                    Email = "string@hotmail.com",
+                    Password =  "stridsfsdfgdfgdfgdfng",
+                    Module = "fundamentos",
+                    Status =  1
+                }
+            };
+            
+            //Arrange
+            // declara um mock do service
+            var mockService = new Mock<IAccountService>();
+            mockService.Setup(x=>x.GetAllAccounts()).Returns(accounts);
+
+            //Act
+            // criar uma instancia do controller
+            var accountController = new AccountController(mockService.Object);
+            var response  = accountController.GetAllAccounts() as OkObjectResult;
+
+            //Assert
+            // chamar a função do controller
+            response.Should().BeOfType(typeof(OkObjectResult));
+            response?.Value.Should().BeEquivalentTo(accounts);
+        }
     }
 }
