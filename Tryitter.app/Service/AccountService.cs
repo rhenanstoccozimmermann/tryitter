@@ -112,11 +112,7 @@ return tokenHandler.WriteToken(token);
         throw new InvalidOperationException("Email não pode ser nulo ou vazio");
       if (string.IsNullOrWhiteSpace(model.Module))
         throw new InvalidOperationException("Módulo não pode ser nulo ou vazio");
-      if (model.AccountId == 0)
-        throw new InvalidOperationException("Id não pode ser 0");
-      if (model.Status == 0)
-        throw new InvalidOperationException("Nome não pode ser 0");
-      
+
       isValid = true;
       return isValid;
     }

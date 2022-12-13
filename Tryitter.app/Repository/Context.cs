@@ -17,9 +17,9 @@ public class Context : DbContext, IContext
       {
         optionsBuilder.UseSqlServer(
           @"Server=localhost;
-          Database=sqlserver;
-          User=SA;
-          Password=senha")
+          Database=tryitterdb;
+          User=sa;
+          Password=Vpmr0BNHP1")
           .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
       }
     }

@@ -5,29 +5,31 @@ namespace Tryitter.test
     
         [Fact]
         public void Test_AddPost_Fail()
-        {
-          
-            
+        {        
             //Arrange
-            // Declara 2 objetos do tipo Post (um faltando propriedades e outro nulo)
+            var postFail = new Post 
+            {
+                AccountId = 1
+            };
+            Post? post = null;
             // declara um mock do service
             var mockService = new Mock<IPostService>();
-            // usar objeto com props faltando no primeiro parametro, e o nulo no segundo(Returns...) 
-            //mockService.Setup(x=>x.AddPost()).Returns();
+            mockService.Setup(x=>x.AddPost(postFail)).Returns(post);
 
             //Act
             // criar uma instancia do controller
             // usa o objeto com props faltando como parametro
-            //var PostController = new PostController(mockService.Object);
-            //var response  = PostController.AddPost(PostFail) as BadRequestObjectResult;
+            var PostController = new PostController(mockService.Object);
+            var response  = PostController.AddPost(postFail) as NotFoundObjectResult;
 
             //Assert
-            // se account é valido
-            // se o Content é menor ou igual a 300 caracteres
+
 
             // chamar a função do controller
-           // response.Should().BeOfType(typeof(BadRequestObjectResult));
-          //  response?.Value.Should().Be("Dados inválidos");
+           response.Should().BeOfType(typeof(NotFoundObjectResult));
+           post?.PostId.Should().Be(0);
+           post?.Content.Length.Should().NotBe(300);
+           response?.Value.Should().Be("Conta não encontrada");
       
         }
 
@@ -36,21 +38,31 @@ namespace Tryitter.test
         public void Test_AddPost_Success()
         {
             // seguir o cenario com os mocks validos;
+            var post = new Post {
+                AccountId = 2,
+                Content = "this is a test of a post"
+            };
+
+            var postReturned = new Post {
+                PostId = 1,
+                AccountId = 2,
+                Content = "this is a test of a post"
+            };
             
             // //Arrange
             // // declara um mock do service
-            // var mockService = new Mock<IPostService>();
-            // mockService.Setup(x=>x.AddPost(Post)).Returns(PostReturned);
+            var mockService = new Mock<IPostService>();
+            mockService.Setup(x=>x.AddPost(post)).Returns(postReturned);
 
             // //Act
             // // criar uma instancia do controller
-            // var PostController = new PostController(mockService.Object);
-            // var response  = PostController.AddPost(Post) as OkObjectResult;
+            var PostController = new PostController(mockService.Object);
+            var response  = PostController.AddPost(post) as OkObjectResult;
 
             // //Assert
-            // // chamar a função do controller
-            // response.Should().BeOfType(typeof(OkObjectResult));
-            // response?.Value.Should().BeEquivalentTo(PostReturned);
+            // chamar a função do controller
+            response.Should().BeOfType(typeof(OkObjectResult));
+            response?.Value.Should().BeEquivalentTo(postReturned);            
         }
     }
 }
