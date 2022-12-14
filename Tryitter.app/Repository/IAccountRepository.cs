@@ -7,7 +7,7 @@ namespace tryitter.Repository
       Account? AddAccount(Account account);
       Account? GetAccountById(int accountId);
       IEnumerable<Account>? GetAllAccounts();
-      Account? UpdateAccount(Account account, string password, string module, int status);
+      Account? UpdateAccount(Account account);
       Account? DeleteAccount(Account account);   
     }
 }

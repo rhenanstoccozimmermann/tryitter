@@ -68,9 +68,9 @@ namespace tryitter.Controllers
         /// <param name="status">the user actual status</param>
         [Authorize]
         [HttpPut("account/{accountId}")]
-        public IActionResult UpdateAccount(int accountId, string password, string module, int status)
+        public IActionResult UpdateAccount(int accountId, Account model)
         {
-            var result = _service.UpdateAccount(accountId, password, module, status);
+            var result = _service.UpdateAccount(accountId, model);
             if (result is null)
             {
                 return NotFound("Conta não encontrada");

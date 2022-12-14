@@ -42,11 +42,13 @@ namespace tryitter.Service {
     public Post? UpdatePost(int postId, string postContent)
     {
       var result = _postRepository.GetPostById(postId);
-      if (result is null)
+      if (result is not null && !string.IsNullOrWhiteSpace(postContent))
       {
-          return null;
+        result.Content = postContent;
+        return _postRepository.UpdatePost(result);
       }
-      return _postRepository.UpdatePost(result, postContent);
+
+      throw new InvalidOperationException("O texto não pode ser vazio");
     }
 
     public Post? DeletePost(int postId)

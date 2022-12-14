@@ -43,10 +43,9 @@ namespace tryitter.Repository
             } 
         }
 
-        public Post? UpdatePost(Post post, string postContent)
+        public Post? UpdatePost(Post post)
         {
             try {
-                post.Content = postContent;
                 _context.Posts.Update(post);
                 _context.SaveChanges();
                 return post;

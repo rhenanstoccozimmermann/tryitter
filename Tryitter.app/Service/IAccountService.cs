@@ -7,7 +7,7 @@ namespace tryitter.Service {
     Account? AddAccount(Account model);
     Account? GetAccountById(int id);
     Account? DeleteAccount(int id);
-    Account? UpdateAccount(int accountId, string password, string module, int status);
+    Account? UpdateAccount(int accountId, Account model);
     IEnumerable<Account>? GetAllAccounts(); 
   }
 }

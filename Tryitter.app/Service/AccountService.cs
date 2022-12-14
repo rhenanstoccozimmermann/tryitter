@@ -83,14 +83,19 @@ return tokenHandler.WriteToken(token);
       return _repository.GetAllAccounts();
     }
 
-    public Account? UpdateAccount(int accountId, string password, string module, int status)
+    public Account? UpdateAccount(int accountId, Account model)
     {
-      var result = _repository.GetAccountById(accountId);
-      if (result is null)
+      var account = _repository.GetAccountById(accountId);
+      if (account is not null)
       {
-          return null;
+          account.Email = model.Email;
+          account.Name = model.Name;
+          account.Module = model.Module;
+          
+          return _repository.UpdateAccount(account);
       }
-      return _repository.UpdateAccount(result, password, module, status);
+
+      throw new InvalidOperationException("Algo deu errado ao atualizar");
     }
 
     public Account? DeleteAccount(int accountId)

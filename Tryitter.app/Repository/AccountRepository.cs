@@ -64,12 +64,10 @@ namespace tryitter.Repository
             // return list;
         }
 
-        public Account? UpdateAccount(Account account, string password, string module, int status)
+        public Account? UpdateAccount(Account account)
         {
             try {
-                account.Password = password;
-                account.Module = module;
-                account.Status = status;
+
                 _context.Accounts.Update(account);
                 _context.SaveChanges();
                 return account;
@@ -77,18 +75,7 @@ namespace tryitter.Repository
                 System.Diagnostics.Debug.WriteLine(e.Message);
                 return null;
             }
-            // var account = new Account();
-            // try {
-            //         account = _context.Accounts.First(a=>a.AccountId == id);
-            //         account.Email = model.Email;
-            //         account.Name = model.Name;
-            //         account.Module = model.Module;
-            //         _context.Accounts.Update(account);
-            //         _context.SaveChanges();
-            //     } catch(Exception e) {
-            //             System.Diagnostics.Debug.WriteLine(e.Message);
-            //     }
-            //     return account; 
+            
         }
 
         public Account? DeleteAccount(Account account)
