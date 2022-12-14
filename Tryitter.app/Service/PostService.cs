@@ -39,12 +39,12 @@ namespace tryitter.Service {
       return _postRepository.GetPostById(postId);
     }
 
-    public Post? UpdatePost(int postId, string postContent)
+    public Post? UpdatePost(int postId, Post post)
     {
       var result = _postRepository.GetPostById(postId);
-      if (result is not null && !string.IsNullOrWhiteSpace(postContent))
+      if (result is not null && !string.IsNullOrWhiteSpace(post.Content))
       {
-        result.Content = postContent;
+        result.Content = post.Content;
         return _postRepository.UpdatePost(result);
       }
 

@@ -19,7 +19,7 @@ public class Context : DbContext, IContext
           @"Server=localhost;
           Database=tryitterdb;
           User=sa;
-          Password=Vpmr0BNHP1")
+          Password=Rh&n@nszbzp2305")
           .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
       }
     }

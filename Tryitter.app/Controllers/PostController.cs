@@ -62,9 +62,9 @@ namespace tryitter.Controllers
         /// <summary>This function updates a post</summary>
         /// <param name="postId">the post id</param>
         [HttpPut("post/{postId}")]
-        public IActionResult UpdatePost(int postId, string postContent)
+        public IActionResult UpdatePost(int postId, Post post)
         {
-            var result = _service.UpdatePost(postId, postContent);
+            var result = _service.UpdatePost(postId, post);
             if (result is null)
             {
                 return NotFound("Post não encontrado");

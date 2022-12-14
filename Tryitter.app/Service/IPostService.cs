@@ -5,7 +5,7 @@ namespace tryitter.Service {
       Post? AddPost(Post post);
       IEnumerable<Post>? GetPostsByAccountId(int accountId);
       Post? GetPostById(int postId);
-      Post? UpdatePost(int postId, string postContent);
+      Post? UpdatePost(int postId, Post post);
       Post? DeletePost(int postId);
   }
 }
