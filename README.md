@@ -157,16 +157,16 @@ Recebe como entrada o id do post.
 
 Retorna uma mensagem confirmando a remoção.
 
-#### Testes unitários
+#### Testes
 
-O projeto conta com testes unitários para garantir a qualidade e o funcionamento das unidades do código.
+O projeto conta com testes para garantir a qualidade e o funcionamento do código.
 
 Atualmente, todos os testes estão sendo executados com êxito, conforme pode ser observado abaixo.
 
 Além disso, os testes possuem atualmente cobertura de código de `+30%`.
 
 <div align="center">
-  <img src=".github/tests.png" alt="Resultado Testes Unitários" width="600px" />
+  <img src=".github/tests.png" alt="Resultado Testes" width="600px" />
 </div>
 
 #### Deploy da API
