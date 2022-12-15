@@ -147,9 +147,9 @@ Recebe como entrada o id do post.
 
 Seguem vídeos da aplicação rodando localmente:
 
-<div align="center">
-  <video src=".github/swagger_1.mp4" controls muted width="600px" />
-</div>
+<video align="center">
+  <source src=".github/swagger_1.mp4" type="video/mp4" width="600px" />
+</video>
 
 #### Testes
 
