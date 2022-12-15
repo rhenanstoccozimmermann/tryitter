@@ -147,13 +147,27 @@ Recebe como entrada o id do post.
 
 Seguem vídeos da aplicação rodando localmente:
 
+[gravacao_1.webm](https://user-images.githubusercontent.com/82423286/207754417-306f3c07-1956-4d9d-9ed7-daca02b3769e.webm)
+
+[gravacao_2.webm](https://user-images.githubusercontent.com/82423286/207754434-17f51235-a65f-429e-90e1-81804c6229e0.webm)
+
+[gravacao_3.webm](https://user-images.githubusercontent.com/82423286/207754443-9b0c5a1a-cd50-4c5c-8d00-2daf5dbac3ae.webm)
+
+No Swagger:
+
+https://user-images.githubusercontent.com/82423286/207754345-b32b9228-cd9e-4cab-ab7d-0f13137856f4.mp4
+
+https://user-images.githubusercontent.com/82423286/207754370-8d17ffe9-4087-4c03-b9c6-a1d92c4db1c7.mp4
+
+https://user-images.githubusercontent.com/82423286/207754395-3879783e-82e9-45e7-9e89-318f57baf047.mp4
+
 #### Testes
 
 O projeto conta com testes para garantir a qualidade e o funcionamento do código.
 
 Atualmente, todos os testes estão sendo executados com êxito, conforme pode ser observado abaixo.
 
-Além disso, os testes possuem atualmente cobertura de código de `+30%`.
+Além disso, os testes possuem atualmente cobertura de código de `30%`.
 
 <div align="center">
   <img src=".github/tests.png" alt="Resultado Testes" width="600px" />
@@ -163,7 +177,26 @@ Além disso, os testes possuem atualmente cobertura de código de `+30%`.
 
 Foi feito o deploy da API, que pode ser encontrada na URL abaixo:
 
+https://tryitter-iwr.azurewebsites.net/
+
+Com Swagger:
+
+https://tryitter-iwr.azurewebsites.net/swagger/index.html
+
+Em razão das limitações da versão gratuita da conta do Azure, a API pode não estar disponível no momento da consulta.
+
+Sendo assim, deixamos um vídeo da API no momento do deploy:
+
+https://user-images.githubusercontent.com/82423286/207754460-0de64864-a771-4d51-b30a-d655ce33cc68.mp4
+
 ## 3. Instruções sobre como executar o projeto
+
+- Inserir a sua senha do SQL Server no Context
+- Verificar se o banco está ativo (por exemplo, com o comando systemctl status mssql-server –no-pager)
+- Fazer o update das migrations (por meio do comando dotnet ef database update)
+- Executar o comando dotnet run na pasta Tryitter.app
+- Por fim, abrir o localhost no navegador (para utilizar o Swagger, adicionar na URL /swagger/index.html)
+- Para testar a API, executr o comando dotnet test na pasta Tryitter.test
 
 ## 4. Contato
 
