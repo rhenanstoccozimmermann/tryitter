@@ -45,20 +45,9 @@ Seguem as decisões tomadas no planejamento e na implementação do projeto, com
 
 ### I) Etapa de planejamento
 
-Nesta etapa foram definidos os endpoints e o Diagrama de Entidade-Relacionamento (DER), para orientar a construção das tabelas no banco de dados.
-
-Nesta etapa também foi confecionada a versão inicial deste README.
+Nesta etapa foram definidos os endpoints e também foi confecionada a versão inicial deste README.
 
 Seguem as definições com as justificativas.
-
-#### Diagrama de Entidade-Relacionamento (DER)
-
-Para orientar a construção das tabelas, foi elaborado o DER a seguir:
-
-<div align="center">
-  <img src=".github/database.png" alt="Diagrama de Entidade-Relacionamento" width="600px" />
-</div>
-<br />
 
 #### Endpoints
 
@@ -66,14 +55,15 @@ Para orientar o desenvolvimento dos endpoints, foi elaborada a lista a seguir:
 
 - POST /account
 - POST /login
-- GET /account/:id
-- PUT /account/:id
-- DELETE /account/:id
+- GET /account/{accountId}
+- GET /account
+- PUT /account/{accountId}
+- DELETE /account/{accountId}
 - POST /post
-- GET /post/account/:id
-- GET /post/:id
-- PUT /post/:id
-- DELETE /post/:id
+- GET /post/account/{accountId}
+- GET /post/{postId}
+- PUT /post/{postId}
+- DELETE /post/{postId}
 
 ### II) Etapa de implementação
 
@@ -85,77 +75,81 @@ Seguem os endpoints implementados:
 
 O endpoint cria uma nova conta na rede social.
 
-Recebe como entradas o nome e uma senha.
+Recebe como entradas o nome, email, senha, módulo e status.
 
-Retorna o id da nova conta.
+Retorna os dados da nova conta.
 
 #### POST /login
 
 O endpoint se destina à autenticação e autorização JWT.
 
-Recebe como entradas o nome e a senha do estudante.
+Recebe como entrada os dados da conta do estudante.
 
 Retorna um token.
 
-#### GET /account/:id
+#### GET /account/{accountId}
 
-O endpoint retorna o nome e a senha da pessoa estudante na rede social.
+O endpoint retorna os dados da conta da pessoa estudante na rede social.
 
 Recebe como entrada o id da conta.
 
-#### PUT /account/:id
+#### PUT /account/{accountId}
 
-O endpoint altera o nome e a senha da pessoa estudante na rede social.
+O endpoint altera os dados da conta da pessoa estudante na rede social.
 
-Recebe como entradas o id da conta e um novo nome e uma nova senha.
+Recebe como entradas o id da conta e os novos dados.
 
-Retorna uma mensagem confirmando a alteração.
+Retorna os novos dados.
 
-#### DELETE /account/:id
+#### DELETE /account/{accountId}
 
 O endpoint remove uma conta na rede social.
 
-Recebe como entrada o código da conta.
-
-Retorna uma mensagem confirmando a remoção.
+Recebe como entrada o id da conta.
 
 #### POST /post
 
 O endpoint cria um post na conta indicada.
 
-Recebe como entradas o id da conta e o conteúdo do post.
+Recebe como entradas o id da conta e os dados do post.
 
-Retorna o id do post.
+Retorna os dados do post.
 
-#### GET /post/account/:id
+#### GET /post/account/{accountId}
 
 O endpoint lista todos os posts de uma pessoa estudante na rede social.
 
 Recebe como entrada o id da conta.
 
-Retorna uma lista com o id da conta e os ids e conteúdos dos posts.
+Retorna uma lista com os dados dos posts.
 
-#### GET /post/:id
+#### GET /post/{postId}
 
-Retorna o id da conta e o id e conteúdo do post.
+Retorna os dados de um post.
 
 Recebe como entrada o id do post.
 
-#### PUT /post/:id
+#### PUT /post/{postId}
 
-O endpoint altera o conteúdo de um post na rede social.
+O endpoint altera um post na rede social.
 
-Recebe como entradas o id do post e um novo conteúdo.
+Recebe como entradas o id do post e os novos dados.
 
-Retorna uma mensagem confirmando a alteração.
+Retorna os novos dados.
 
-#### DELETE /post/:id
+#### DELETE /post/{postId}
 
 O endpoint remove um post na rede social.
 
 Recebe como entrada o id do post.
 
-Retorna uma mensagem confirmando a remoção.
+#### Apresentação
+
+Seguem vídeos da aplicação rodando localmente:
+
+<div align="center">
+  <video src=".github/gravacao_1.webm" controls muted width="600px" />
+</div>
 
 #### Testes
 
