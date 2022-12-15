@@ -148,7 +148,7 @@ Recebe como entrada o id do post.
 Seguem vídeos da aplicação rodando localmente:
 
 <div align="center">
-  <video src=".github/gravacao_1.webm" controls muted width="600px" />
+  <video src=".github/swagger_1.mp4" controls muted width="600px" />
 </div>
 
 #### Testes
