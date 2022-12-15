@@ -147,9 +147,19 @@ Recebe como entrada o id do post.
 
 Seguem vídeos da aplicação rodando localmente:
 
-<video align="center">
-  <source src=".github/swagger_1.mp4" type="video/mp4" width="600px" />
-</video>
+[gravacao_1.webm](https://user-images.githubusercontent.com/82423286/207754417-306f3c07-1956-4d9d-9ed7-daca02b3769e.webm)
+
+[gravacao_2.webm](https://user-images.githubusercontent.com/82423286/207754434-17f51235-a65f-429e-90e1-81804c6229e0.webm)
+
+[gravacao_3.webm](https://user-images.githubusercontent.com/82423286/207754443-9b0c5a1a-cd50-4c5c-8d00-2daf5dbac3ae.webm)
+
+No Swagger:
+
+https://user-images.githubusercontent.com/82423286/207754345-b32b9228-cd9e-4cab-ab7d-0f13137856f4.mp4
+
+https://user-images.githubusercontent.com/82423286/207754370-8d17ffe9-4087-4c03-b9c6-a1d92c4db1c7.mp4
+
+https://user-images.githubusercontent.com/82423286/207754395-3879783e-82e9-45e7-9e89-318f57baf047.mp4
 
 #### Testes
 
@@ -166,6 +176,8 @@ Além disso, os testes possuem atualmente cobertura de código de `+30%`.
 #### Deploy da API
 
 Foi feito o deploy da API, que pode ser encontrada na URL abaixo:
+
+https://user-images.githubusercontent.com/82423286/207754460-0de64864-a771-4d51-b30a-d655ce33cc68.mp4
 
 ## 3. Instruções sobre como executar o projeto
 
