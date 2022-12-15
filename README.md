@@ -147,10 +147,6 @@ Recebe como entrada o id do post.
 
 Seguem vídeos da aplicação rodando localmente:
 
-<video align="center">
-  <source src=".github/swagger_1.mp4" type="video/mp4" width="600px" />
-</video>
-
 #### Testes
 
 O projeto conta com testes para garantir a qualidade e o funcionamento do código.
