@@ -75,13 +75,13 @@ Seguem os endpoints implementados:
 
 O endpoint cria uma nova conta na rede social.
 
-Recebe como entradas o nome, email, senha, módulo e status.
+Recebe como entradas os dados da conta da pessoa estudante na rede social.
 
 Retorna os dados da nova conta.
 
 #### POST /login
 
-O endpoint se destina à autenticação e autorização JWT.
+O endpoint se destina à autenticação e autorização.
 
 Recebe como entrada os dados da conta do estudante.
 
@@ -145,7 +145,7 @@ Recebe como entrada o id do post.
 
 #### Apresentação
 
-Seguem vídeos da aplicação rodando localmente:
+Seguem vídeos da API rodando localmente:
 
 [gravacao_1.webm](https://user-images.githubusercontent.com/82423286/207754417-306f3c07-1956-4d9d-9ed7-daca02b3769e.webm)
 
@@ -192,11 +192,11 @@ https://user-images.githubusercontent.com/82423286/207754460-0de64864-a771-4d51-
 ## 3. Instruções sobre como executar o projeto
 
 - Inserir a sua senha do SQL Server no Context
-- Verificar se o banco está ativo (por exemplo, com o comando systemctl status mssql-server –no-pager)
+- Verificar se o SQL Server está ativo (por exemplo, com o comando systemctl status mssql-server –no-pager)
 - Fazer o update das migrations (por meio do comando dotnet ef database update)
 - Executar o comando dotnet run na pasta Tryitter.app
 - Por fim, abrir o localhost no navegador (para utilizar o Swagger, adicionar na URL /swagger/index.html)
-- Para testar a API, executr o comando dotnet test na pasta Tryitter.test
+- Para testar a API, executar o comando dotnet test na pasta Tryitter.test
 
 ## 4. Contato
 
